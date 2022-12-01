@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FootballTeamController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">footbal-tickets-app</a> &gt; <a href="index.source.html" class="el_package">com.ultras.footbalticketsapp.controller</a> &gt; <span class="el_source">FootballTeamController.java</span></div><h1>FootballTeamController.java</h1><pre class="source lang-java linenums">package com.ultras.footbalticketsapp.controller;
+
+import com.ultras.footbalticketsapp.controller.footballTeam.FootballTeamResponse;
+import com.ultras.footbalticketsapp.controller.footballTeam.NewFootballTeamRequest;
+import com.ultras.footbalticketsapp.serviceInterface.FootballTeamService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.util.List;
+
+@RestController
+@CrossOrigin(origins = &quot;http://localhost:3000&quot;)
+@RequestMapping(&quot;/teams&quot;)
+public class FootballTeamController {
+
+    private final FootballTeamService footballTeamService;
+
+    @Autowired
+<span class="fc" id="L22">    public FootballTeamController(FootballTeamService footballTeamService) {</span>
+<span class="fc" id="L23">        this.footballTeamService = footballTeamService;</span>
+<span class="fc" id="L24">    }</span>
+
+    @PostMapping(&quot;/add&quot;)
+    public ResponseEntity&lt;FootballTeamResponse&gt; saveFootballTeam(@RequestBody NewFootballTeamRequest newFootballTeamRequest) {
+<span class="fc" id="L28">        FootballTeamResponse savedTeam = footballTeamService.saveFootballTeam(newFootballTeamRequest);</span>
+<span class="fc" id="L29">        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path(&quot;/teams/&quot; + savedTeam.getId()).toUriString());</span>
+<span class="fc" id="L30">        return ResponseEntity.created(uri).body(savedTeam);</span>
+    }
+
+    @GetMapping(&quot;/{teamId}&quot;)
+    public ResponseEntity&lt;FootballTeamResponse&gt; getFootballTeamById(@PathVariable(&quot;teamId&quot;) int teamId){
+<span class="fc" id="L35">        return ResponseEntity.ok().body(footballTeamService.getFootballTeamById(teamId));</span>
+    }
+
+    @GetMapping(&quot;/&quot;)
+    public ResponseEntity&lt;List&lt;FootballTeamResponse&gt;&gt; getAllFootballTeams(){
+<span class="fc" id="L40">        return ResponseEntity.ok().body(footballTeamService.getAllFootballTeams());</span>
+    }
+
+    @PutMapping(&quot;/update&quot;)
+    public ResponseEntity&lt;FootballTeamResponse&gt; updateFootballTeam(@RequestBody FootballTeamResponse team){
+<span class="fc" id="L45">        return ResponseEntity.ok().body(footballTeamService.updateFootballTeam(team));</span>
+    }
+
+    @DeleteMapping(&quot;/{teamId}&quot;)
+    public String deleteFootballTeam(@PathVariable(&quot;teamId&quot;) int teamId){
+<span class="fc" id="L50">        footballTeamService.deleteFootballTeam(teamId);</span>
+<span class="fc" id="L51">        return &quot;Football team deleted successfully&quot;;</span>
+    }
+
+    //TODO remove because is in saveTeam method
+//    @PostMapping(&quot;/stadium&quot;)
+//    public String saveStadium(Stadium stadium){
+//        footballTeamService.saveStadium(stadium);
+//        return &quot;Stadium saved successfully&quot;;
+//    }
+
+    //TODO remove because is not used
+//    @GetMapping(&quot;/stadium/{stadiumId}&quot;)
+//    public Stadium getStadium(@PathVariable(&quot;stadiumId&quot;) int stadiumId){
+//        return footballTeamService.getStadiumById(stadiumId);
+//    }
+
+//    @DeleteMapping(&quot;/stadium/{stadiumId}&quot;)
+//    public String deleteStadium(@PathVariable(&quot;stadiumId&quot;) int stadiumId){
+//        footballTeamService.deleteStadium(stadiumId);
+//        return &quot;Stadium deleted successfully&quot;;
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ultras.footbalticketsapp.matches.MatchServiceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2022-11-25T20:28:41" hostname="LUC" time="0.072">
+  <properties/>
+  <testcase name="testDeleteMatchById_throwsIllegalStateException_whenMatchIsNull()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.049"/>
+  <testcase name="testTicketBought()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.003"/>
+  <testcase name="testSaveMatch_throwsIllegalStateException_whenMatchAlreadyExists()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.003"/>
+  <testcase name="testUpdateMatch()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.003"/>
+  <testcase name="testTicketBought_throwsIllegalStateException_whenTicketNumberIsZero()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.001"/>
+  <testcase name="testSaveMatch()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.003"/>
+  <testcase name="testUpdateMatch_throwsIllegalStateException_whenMatchIsNull()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.002"/>
+  <testcase name="testDeleteMatchById()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.002"/>
+  <testcase name="testGetMatchById()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.001"/>
+  <testcase name="getAllMatches()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.0"/>
+  <testcase name="testTicketBought_throwsIllegalStateException_whenMatchIsNull()" classname="com.ultras.footbalticketsapp.matches.MatchServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MatchController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">footbal-tickets-app</a> &gt; <a href="index.source.html" class="el_package">com.ultras.footbalticketsapp.controller</a> &gt; <span class="el_source">MatchController.java</span></div><h1>MatchController.java</h1><pre class="source lang-java linenums">package com.ultras.footbalticketsapp.controller;
+
+import com.ultras.footbalticketsapp.controller.match.MatchResponse;
+import com.ultras.footbalticketsapp.controller.match.NewMatchRequest;
+import com.ultras.footbalticketsapp.model.Match;
+import com.ultras.footbalticketsapp.serviceInterface.MatchService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.util.List;
+
+@RestController
+@CrossOrigin(origins = &quot;http://localhost:3000&quot;)
+@RequestMapping(&quot;/matches&quot;)
+public class MatchController {
+
+    private final MatchService matchService;
+
+    @Autowired
+<span class="fc" id="L23">    public MatchController(MatchService matchService) {</span>
+<span class="fc" id="L24">        this.matchService = matchService;</span>
+<span class="fc" id="L25">    }</span>
+
+    @PostMapping(&quot;/add&quot;)
+    public ResponseEntity&lt;MatchResponse&gt; saveMatch(@RequestBody NewMatchRequest match) {
+<span class="fc" id="L29">        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path(&quot;/matches/&quot;).toUriString());</span>
+<span class="fc" id="L30">        return ResponseEntity.created(uri).body(matchService.saveMatch(match));</span>
+    }
+
+    @GetMapping(&quot;/{matchId}&quot;)
+    public ResponseEntity&lt;MatchResponse&gt; getMatchById(@PathVariable(&quot;matchId&quot;) int matchId){
+<span class="fc" id="L35">        return ResponseEntity.ok().body(matchService.getMatchById(matchId));</span>
+    }
+
+    @GetMapping(&quot;/&quot;)
+    public ResponseEntity&lt;List&lt;MatchResponse&gt;&gt; getAllMatches(){
+<span class="fc" id="L40">        return ResponseEntity.ok().body(matchService.getAllMatches());</span>
+    }
+
+    @GetMapping(&quot;/team/{teamId}&quot;)
+    public ResponseEntity&lt;Integer&gt; getNumberOfMatchesByTeam(@PathVariable(&quot;teamId&quot;) int teamId){
+<span class="nc" id="L45">        return ResponseEntity.ok().body(matchService.getNumberOfMatchesByTeam(teamId));</span>
+    }
+
+    //TODO fix because it passes an object there should be RequestBody but maybe remove the pathVariable and change URI to /update
+    @PutMapping(&quot;/{matchId}&quot;)
+    public ResponseEntity&lt;MatchResponse&gt; updateMatch(@PathVariable(&quot;matchId&quot;) int id, @RequestBody MatchResponse match){
+<span class="nc" id="L51">        return ResponseEntity.ok().body(matchService.updateMatch(match));</span>
+    }
+
+    @DeleteMapping(&quot;/{matchId}&quot;)
+    public String deleteMatch(@PathVariable(&quot;matchId&quot;) int matchId){
+<span class="fc" id="L56">        matchService.deleteMatchById(matchId);</span>
+<span class="fc" id="L57">        return &quot;Match deleted successfully&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

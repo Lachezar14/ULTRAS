@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MatchServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">footbal-tickets-app</a> &gt; <a href="index.source.html" class="el_package">com.ultras.footbalticketsapp.service</a> &gt; <span class="el_source">MatchServiceImpl.java</span></div><h1>MatchServiceImpl.java</h1><pre class="source lang-java linenums">package com.ultras.footbalticketsapp.service;
+
+import com.ultras.footbalticketsapp.controller.match.MatchResponse;
+import com.ultras.footbalticketsapp.controller.match.NewMatchRequest;
+import com.ultras.footbalticketsapp.mapper.MatchMapper;
+import com.ultras.footbalticketsapp.model.Match;
+import com.ultras.footbalticketsapp.repository.MatchRepository;
+import com.ultras.footbalticketsapp.serviceInterface.MatchService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+
+
+@Service
+public class MatchServiceImpl implements MatchService {
+
+    private final MatchRepository matchRepository;
+    private final MatchMapper matchMapper;
+
+    @Autowired
+<span class="fc" id="L24">    public MatchServiceImpl(MatchRepository matchRepository, MatchMapper matchMapper) {</span>
+<span class="fc" id="L25">        this.matchRepository = matchRepository;</span>
+<span class="fc" id="L26">        this.matchMapper = matchMapper;</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public MatchResponse saveMatch(NewMatchRequest newMatchRequest) {
+<span class="fc" id="L31">        Match match = matchMapper.newMatchRequestToMatch(newMatchRequest);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if(matchRepository.findByHomeTeamAndAwayTeamAndDate(match.getHome_team().getId(), match.getAway_team().getId(), match.getDate()) != null){</span>
+<span class="fc" id="L33">            throw new IllegalStateException(&quot;Match already exists&quot;);</span>
+        }
+<span class="fc" id="L35">        matchRepository.save(match);</span>
+<span class="fc" id="L36">        return matchMapper.matchToMatchResponse(match);</span>
+    }
+
+    @Override
+    public MatchResponse getMatchById(int matchId) {
+<span class="fc" id="L41">        Match match = matchRepository.findById(matchId).orElse(null);</span>
+<span class="fc" id="L42">        return matchMapper.matchToMatchResponse(match);</span>
+    }
+
+    @Override
+    public List&lt;MatchResponse&gt; getAllMatches() {
+<span class="fc" id="L47">        return matchMapper.matchesToMatchesResponse(matchRepository.findAll());</span>
+    }
+
+    @Override
+    public int getNumberOfMatchesByTeam(int teamId) {
+<span class="nc" id="L52">        return matchRepository.getNumberOfMatchesByTeam(teamId);</span>
+    }
+    @Override
+    public MatchResponse updateMatch(MatchResponse match) {
+<span class="fc" id="L56">        Match toUpdate = matchRepository.findById(match.getId()).orElse(null);</span>
+<span class="fc" id="L57">        Match updated = matchMapper.matchResponseToMatch(match);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if(toUpdate == null){</span>
+<span class="fc" id="L59">            throw new RuntimeException(&quot;Match not found&quot;);</span>
+        }
+<span class="fc" id="L61">        toUpdate.setHome_team(updated.getHome_team());</span>
+<span class="fc" id="L62">        toUpdate.setAway_team(updated.getAway_team());</span>
+<span class="fc" id="L63">        toUpdate.setDate(updated.getDate());</span>
+<span class="fc" id="L64">        toUpdate.setTicket_number(updated.getTicket_number());</span>
+<span class="fc" id="L65">        toUpdate.setTicket_price(updated.getTicket_price());</span>
+<span class="fc" id="L66">        matchRepository.save(toUpdate);</span>
+<span class="fc" id="L67">        return matchMapper.matchToMatchResponse(toUpdate);</span>
+    }
+
+    @Override
+    public void deleteMatchById(int matchId) {
+<span class="fc" id="L72">        Match match = matchRepository.findById(matchId).orElse(null);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        if(match == null){</span>
+<span class="fc" id="L74">            throw new RuntimeException(&quot;Match not found&quot;);</span>
+        }
+<span class="fc" id="L76">        matchRepository.delete(match);</span>
+<span class="fc" id="L77">    }</span>
+
+    @Override
+    public void TicketBought(int matchId, int ticketAmount) {
+<span class="fc" id="L81">        Match match = matchRepository.findById(matchId).orElse(null);</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        if(match == null){</span>
+<span class="fc" id="L83">            throw new RuntimeException(&quot;Match not found&quot;);</span>
+        }
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if(match.getTicket_number() == 0){</span>
+<span class="fc" id="L86">            throw new RuntimeException(&quot;No tickets left&quot;);</span>
+        }
+<span class="fc" id="L88">        match.setTicket_number(match.getTicket_number() - ticketAmount);</span>
+<span class="fc" id="L89">        matchRepository.save(match);</span>
+<span class="fc" id="L90">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">footbal-tickets-app</a> &gt; <a href="index.source.html" class="el_package">com.ultras.footbalticketsapp.controller</a> &gt; <span class="el_source">TicketController.java</span></div><h1>TicketController.java</h1><pre class="source lang-java linenums">package com.ultras.footbalticketsapp.controller;
+
+import com.ultras.footbalticketsapp.controller.ticket.BuyTicketRequest;
+import com.ultras.footbalticketsapp.controller.ticket.TicketResponse;
+import com.ultras.footbalticketsapp.serviceInterface.TicketService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.util.List;
+
+@RestController
+@CrossOrigin(origins = &quot;http://localhost:3000&quot;)
+@RequestMapping(&quot;/tickets&quot;)
+public class TicketController {
+
+    private final TicketService ticketService;
+
+    @Autowired
+<span class="fc" id="L22">    public TicketController(TicketService ticketService){</span>
+<span class="fc" id="L23">        this.ticketService = ticketService;</span>
+<span class="fc" id="L24">    }</span>
+
+    @PostMapping(&quot;/add&quot;)
+    public ResponseEntity&lt;TicketResponse&gt; buyTicket(@RequestBody BuyTicketRequest ticket){
+<span class="fc" id="L28">        TicketResponse savedTicket = ticketService.buyTicket(ticket);</span>
+<span class="fc" id="L29">        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path(&quot;/tickets/&quot; + savedTicket.getId()).toUriString());</span>
+<span class="fc" id="L30">        return ResponseEntity.created(uri).body(savedTicket);</span>
+    }
+
+    @GetMapping(&quot;/{ticketId}&quot;)
+    public ResponseEntity&lt;TicketResponse&gt; getTicketById(@PathVariable(&quot;ticketId&quot;) int ticketId){
+<span class="fc" id="L35">        return ResponseEntity.ok().body(ticketService.getTicketById(ticketId));</span>
+    }
+
+    /*@GetMapping(&quot;/matchTickets&quot;)
+    public List&lt;Ticket&gt; getTicketsByMatchId(@PathVariable(&quot;matchId&quot;) int matchId){
+        return ticketService.getTicketsByMatchId(matchId);
+    }*/
+
+    @GetMapping(&quot;/user/{userId}&quot;)
+    public ResponseEntity&lt;List&lt;TicketResponse&gt;&gt; getTicketsByUserId(@PathVariable(&quot;userId&quot;) int userId){
+<span class="fc" id="L45">        return ResponseEntity.ok().body(ticketService.getTicketsByUserId(userId));</span>
+    }
+
+    @GetMapping(&quot;/team/{teamId}&quot;)
+    public ResponseEntity&lt;Integer&gt; countAllByTeamId(@PathVariable(&quot;teamId&quot;) int teamId){
+<span class="nc" id="L50">        return ResponseEntity.ok().body(ticketService.countAllByTeamId(teamId));</span>
+    }
+
+    //TODO delete because ticket info should not be updated
+//    @PutMapping(&quot;/{ticketId}&quot;)
+//    public ResponseEntity&lt;TicketResponse&gt; updateTicket(@PathVariable(&quot;ticketId&quot;) TicketResponse ticket){
+//        return ResponseEntity.ok().body(ticketService.updateTicket(ticket));
+//    }
+//
+//    //TODO delete because ticket info should not be deleted
+//    @DeleteMapping(&quot;/{ticketId}&quot;)
+//    public String deleteTicket(@PathVariable(&quot;ticketId&quot;) int ticketId){
+//        ticketService.deleteTicket(ticketId);
+//        return &quot;Ticket deleted successfully&quot;;
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

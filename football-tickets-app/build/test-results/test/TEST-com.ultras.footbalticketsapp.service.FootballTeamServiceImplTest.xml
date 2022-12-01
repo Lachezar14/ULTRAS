@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" tests="17" skipped="17" failures="0" errors="0" timestamp="2022-11-25T20:28:41" hostname="LUC" time="0.001">
+  <properties/>
+  <testcase name="testUpdateStadium()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateFootballTeam()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSaveFootballTeam()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSaveFootballTeam2()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetFootballTeamById()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetFootballTeamById2()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllFootballTeams()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllFootballTeams2()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllFootballTeams3()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateStadium2()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateStadium3()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateStadium4()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateFootballTeam2()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateFootballTeam3()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateFootballTeam4()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateFootballTeam5()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateFootballTeam6()" classname="com.ultras.footbalticketsapp.service.FootballTeamServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

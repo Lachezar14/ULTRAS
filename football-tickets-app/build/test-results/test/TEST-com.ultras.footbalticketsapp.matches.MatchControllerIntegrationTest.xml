@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ultras.footbalticketsapp.matches.MatchControllerIntegrationTest" tests="5" skipped="1" failures="0" errors="0" timestamp="2022-11-25T20:28:41" hostname="LUC" time="0.039">
+  <properties/>
+  <testcase name="testDeleteMatch()" classname="com.ultras.footbalticketsapp.matches.MatchControllerIntegrationTest" time="0.008"/>
+  <testcase name="testUpdateMatch()" classname="com.ultras.footbalticketsapp.matches.MatchControllerIntegrationTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllMatches()" classname="com.ultras.footbalticketsapp.matches.MatchControllerIntegrationTest" time="0.006"/>
+  <testcase name="testSaveMatch()" classname="com.ultras.footbalticketsapp.matches.MatchControllerIntegrationTest" time="0.015"/>
+  <testcase name="testGetMatchById()" classname="com.ultras.footbalticketsapp.matches.MatchControllerIntegrationTest" time="0.006"/>
+  <system-out><![CDATA[2022-11-25 21:28:40.690  INFO 3800 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.ultras.footbalticketsapp.matches.MatchControllerIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-11-25 21:28:40.692  INFO 3800 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-11-25 21:28:40.693  INFO 3800 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@32a1aabf, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6b7f46f6, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4d7d47f3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@f6c9514, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@30a73214, org.springframework.test.context.support.DirtiesContextTestExecutionListener@21fe8a00, org.springframework.test.context.transaction.TransactionalTestExecutionListener@69b1313, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6d34e2e1, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@640a4ac1, org.springframework.test.context.event.EventPublishingTestExecutionListener@317162ca, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@6facfc7c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@25453882, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@132f32a9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@29727534, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2135337a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2d388ef6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@47684b82]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.3)
+
+2022-11-25 21:28:40.709  INFO 3800 --- [    Test worker] c.u.f.m.MatchControllerIntegrationTest   : Starting MatchControllerIntegrationTest using Java 17.0.4.1 on Luc with PID 3800 (started by lacho in C:\Users\lacho\Desktop\football-app\football-tickets-app)
+2022-11-25 21:28:40.709  INFO 3800 --- [    Test worker] c.u.f.m.MatchControllerIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 21:28:41.006  WARN 3800 --- [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9b3dadea-5906-4d4e-9ddf-600ebe056d6c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-11-25 21:28:41.061  INFO 3800 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@44aec2db, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fb8cbe7, org.springframework.security.web.context.SecurityContextPersistenceFilter@c8cc0fe, org.springframework.security.web.header.HeaderWriterFilter@12d4aef0, org.springframework.security.web.csrf.CsrfFilter@2e727076, org.springframework.security.web.authentication.logout.LogoutFilter@20b60f8c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@602947e7, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2bc0ea42, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1584b588, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7abdb7cf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a996df9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d0df574, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2106b38, org.springframework.security.web.session.SessionManagementFilter@3140f760, org.springframework.security.web.access.ExceptionTranslationFilter@5c0f5789, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25cbd4d5]
+2022-11-25 21:28:41.086  INFO 3800 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-11-25 21:28:41.087  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-11-25 21:28:41.087  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-11-25 21:28:41.093  INFO 3800 --- [    Test worker] c.u.f.m.MatchControllerIntegrationTest   : Started MatchControllerIntegrationTest in 0.398 seconds (JVM running for 10.083)
+2022-11-25 21:28:41.097  INFO 3800 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-11-25 21:28:41.098  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-11-25 21:28:41.098  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-11-25 21:28:41.106  INFO 3800 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-11-25 21:28:41.107  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-11-25 21:28:41.107  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-11-25 21:28:41.113  INFO 3800 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-11-25 21:28:41.114  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-11-25 21:28:41.114  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-11-25 21:28:41.130  INFO 3800 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-11-25 21:28:41.130  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-11-25 21:28:41.131  INFO 3800 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

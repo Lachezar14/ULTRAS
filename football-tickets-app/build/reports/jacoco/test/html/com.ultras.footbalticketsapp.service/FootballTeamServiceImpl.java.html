@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FootballTeamServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">footbal-tickets-app</a> &gt; <a href="index.source.html" class="el_package">com.ultras.footbalticketsapp.service</a> &gt; <span class="el_source">FootballTeamServiceImpl.java</span></div><h1>FootballTeamServiceImpl.java</h1><pre class="source lang-java linenums">package com.ultras.footbalticketsapp.service;
+
+import com.ultras.footbalticketsapp.controller.footballTeam.FootballTeamResponse;
+import com.ultras.footbalticketsapp.controller.footballTeam.NewFootballTeamRequest;
+import com.ultras.footbalticketsapp.mapper.FootballTeamMapper;
+import com.ultras.footbalticketsapp.model.FootballTeam;
+import com.ultras.footbalticketsapp.model.Stadium;
+import com.ultras.footbalticketsapp.repository.FootballTeamRepository;
+import com.ultras.footbalticketsapp.repository.StadiumRepository;
+import com.ultras.footbalticketsapp.serviceInterface.FootballTeamService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+public class FootballTeamServiceImpl implements FootballTeamService {
+
+    private final FootballTeamRepository footballTeamRepository;
+    private final StadiumRepository stadiumRepository;
+    private final FootballTeamMapper footballTeamMapper;
+
+<span class="fc" id="L23">    public FootballTeamServiceImpl(FootballTeamRepository footballTeamRepository, StadiumRepository stadiumRepository, FootballTeamMapper footballTeamMapper) {</span>
+<span class="fc" id="L24">        this.footballTeamRepository = footballTeamRepository;</span>
+<span class="fc" id="L25">        this.stadiumRepository = stadiumRepository;</span>
+<span class="fc" id="L26">        this.footballTeamMapper = footballTeamMapper;</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public FootballTeamResponse saveFootballTeam(NewFootballTeamRequest newFootballTeamRequest) {
+<span class="fc" id="L31">        FootballTeam footballTeam = footballTeamMapper.newFootballTeamRequestToFootballTeam(newFootballTeamRequest);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if(footballTeamRepository.findByName(footballTeam.getName()) != null){</span>
+<span class="fc" id="L33">            throw new RuntimeException(&quot;Team already exists&quot;);</span>
+        }
+<span class="fc" id="L35">        Stadium stadium = footballTeam.getStadium();</span>
+<span class="fc" id="L36">        stadiumRepository.save(stadium);</span>
+<span class="fc" id="L37">        footballTeamRepository.save(footballTeam);</span>
+<span class="fc" id="L38">        return footballTeamMapper.footballTeamToFootballTeamResponse(footballTeam);</span>
+    }
+
+    @Override
+    public FootballTeamResponse getFootballTeamById(int id) {
+<span class="fc" id="L43">        FootballTeam team = footballTeamRepository.findById(id).orElse(null);</span>
+<span class="fc" id="L44">        return footballTeamMapper.footballTeamToFootballTeamResponse(team);</span>
+    }
+
+    @Override
+    public List&lt;FootballTeamResponse&gt; getAllFootballTeams() {
+<span class="fc" id="L49">        return footballTeamMapper.footballTeamsToFootballTeamsResponse(footballTeamRepository.findAll());</span>
+    }
+
+    @Override
+    public FootballTeamResponse updateFootballTeam(FootballTeamResponse footballTeam) {
+<span class="fc" id="L54">        FootballTeam toUpdate = footballTeamRepository.findById(footballTeam.getId()).orElse(null);</span>
+<span class="fc" id="L55">        FootballTeam updated = footballTeamMapper.footballTeamResponseToFootballTeam(footballTeam);</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (toUpdate == null) {</span>
+<span class="fc" id="L57">            throw new RuntimeException(&quot;Team not found&quot;);</span>
+        }
+<span class="fc" id="L59">        toUpdate.setName(updated.getName());</span>
+<span class="fc" id="L60">        updateStadium(updated.getStadium());</span>
+<span class="fc" id="L61">        footballTeamRepository.save(toUpdate);</span>
+<span class="fc" id="L62">        return footballTeamMapper.footballTeamToFootballTeamResponse(toUpdate);</span>
+    }
+    //TODO ask teacher if its good to combine team and stadium crud in one methods
+    @Override
+    public void deleteFootballTeam(int id) {
+<span class="fc" id="L67">        FootballTeam footballTeam = footballTeamRepository.findById(id).orElse(null);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (footballTeam == null) {</span>
+<span class="fc" id="L69">            throw new RuntimeException(&quot;Team not found&quot;);</span>
+        }
+<span class="fc" id="L71">        footballTeamRepository.delete(footballTeam);</span>
+<span class="fc" id="L72">        stadiumRepository.delete(footballTeam.getStadium());</span>
+<span class="fc" id="L73">    }</span>
+
+    public void updateStadium(Stadium stadium){
+<span class="fc" id="L76">        Stadium toUpdate = stadiumRepository.findById(stadium.getId()).orElse(null);</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if (toUpdate == null) {</span>
+<span class="fc" id="L78">            throw new RuntimeException(&quot;Stadium not found&quot;);</span>
+        }
+<span class="fc" id="L80">        toUpdate.setName(stadium.getName());</span>
+<span class="fc" id="L81">        toUpdate.setCapacity(stadium.getCapacity());</span>
+<span class="fc" id="L82">        stadiumRepository.save(toUpdate);</span>
+<span class="fc" id="L83">    }</span>
+
+    //TODO remove because it is in the saveTeam method
+//    @Override
+//    public Stadium saveStadium(Stadium stadium) {
+//        return stadiumRepository.save(stadium);
+//    }
+
+    //TODO remove because it is not used
+//    @Override
+//    public Stadium getStadiumById(int id) {
+//        return stadiumRepository.findById(id).orElse(null);
+//    }
+//
+//    //TODO remove because it is redundant
+//    @Override
+//    public void deleteStadium(int id) {
+//        Stadium stadium = stadiumRepository.findById(id).orElse(null);
+//        stadiumRepository.delete(stadium);
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

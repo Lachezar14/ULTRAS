@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ultras.footbalticketsapp.service.UserServiceImplTest" tests="11" skipped="11" failures="0" errors="0" timestamp="2022-11-25T20:28:41" hostname="LUC" time="0.001">
+  <properties/>
+  <testcase name="testGetUserByEmail()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllUsers()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllUsers2()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllUsers3()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testDeleteUserById()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testDeleteUserById2()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testDeleteUserById3()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testDeleteUserById4()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetUserById()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetUserById2()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetUserByEmail2()" classname="com.ultras.footbalticketsapp.service.UserServiceImplTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

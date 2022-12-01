@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ultras.footbalticketsapp.controller.MatchControllerTest" tests="8" skipped="8" failures="0" errors="0" timestamp="2022-11-25T20:28:39" hostname="LUC" time="0.008">
+  <properties/>
+  <testcase name="testDeleteMatch()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllMatches2()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateMatch()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetMatchById2()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetAllMatches()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testDeleteMatch2()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSaveMatch()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGetMatchById()" classname="com.ultras.footbalticketsapp.controller.MatchControllerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[2022-11-25 21:28:39.680  INFO 3800 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-11-25 21:28:39.680  INFO 3800 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3dede2fa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@21d6a39b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3fb647e2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3f5efaf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6d7625db, org.springframework.test.context.support.DirtiesContextTestExecutionListener@79a89995, org.springframework.test.context.transaction.TransactionalTestExecutionListener@74ac4815, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3c6de542, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@60e957e9, org.springframework.test.context.event.EventPublishingTestExecutionListener@5db00e50, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@4bca0913, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@185ea2dd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3222e820, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6f3da2ba, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7424acdf, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1981a0cc, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3cc73834]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
