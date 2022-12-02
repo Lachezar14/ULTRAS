@@ -1,62 +1,52 @@
-# Project Title
+# ULTRAS - Ticket Management Application
 
-Simple overview of use/purpose.
+ULTRAS is an application for customers to purchase tickets about football matches and more.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+ULTRAS is an application, which shows matches that will be played soon and provides the possibility for football fans to buy tickets and enjoy watching the match live. Moreover, users can create account so that they can keep track of their purchased tickets and able to modify their profile information. For that the application uses JWT technology for Authentication & Authorization to provide security. The software solution has matches, football teams, stadiums and users. More information about the entities can be seen in the [Design Document](https://github.com/Lachezar14/ULTRAS/tree/main/docs). Administrators can perform CRUD operation on these entities.The application has role authorization and serves 2 types of roles:
+   * User
+   * Administrator
+   
+More information can be found in the [docs folder](https://github.com/Lachezar14/ULTRAS/tree/main/docs) where there is information about all design decisions connected with the project.
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+Application uses:
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* SpringBoot Framework version  '2.7.3'
+* Java 17
+* React App
+* MYSLQ Database
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+* Backend (SpringBoot Application)
+   * Host a MYSQL database with the specified settings from the [application.properties file](https://github.com/Lachezar14/ULTRAS/tree/main/football-tickets-app/src/main/resources)
+   * Open the application and run [FootbalTicketsAppApplication.java](https://github.com/Lachezar14/ULTRAS/blob/main/football-tickets-app/src/main/java/com/ultras/footbalticketsapp/FootbalTicketsAppApplication.java) 
 
-## Help
-
-Any advise for common problems or issues.
+* Frontend (React App)
+   * Open the React application
+   * For installing all node modules type in the terminal:
 ```
-command to run if program contains helper info
+npm install
+```
+   * To run the app type:
+   ```
+npm start
 ```
 
 ## Authors
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+* Lachezar Mitov
+    * Email: lachomitov2609@gmail.com
+    * Linkedin: [Lachezar Mitov](https://www.linkedin.com/in/lachezar-mitov-922b49230/)
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the Lachezar Mitov License.
 
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
