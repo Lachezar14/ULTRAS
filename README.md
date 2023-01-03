@@ -21,22 +21,24 @@ Application uses:
 * React App
 * MYSLQ Database
 
-### Executing program
+### Build instructions
 
-* Backend (SpringBoot Application)
-   * Host a MYSQL database with the specified settings from the [application.properties file](https://github.com/Lachezar14/ULTRAS/tree/main/football-tickets-app/src/main/resources)
-   * Open the application and run [FootbalTicketsAppApplication.java](https://github.com/Lachezar14/ULTRAS/blob/main/football-tickets-app/src/main/java/com/ultras/footbalticketsapp/FootbalTicketsAppApplication.java) 
+1. Ensure you have [Docker](https://www.docker.com/) installed
+2. Clone the project and navigate to its directory
+```
+git clone https://github.com/Lachezar14/ULTRAS.git
+cd ./ULTRAS/
+```
+3. Open a terminal and execute:
+```
+docker compose up
+```
+4. Visit http://localhost:3000 in your browser
 
-* Frontend (React App)
-   * Open the React application
-   * For installing all node modules type in the terminal:
-```
-npm install
-```
-   * To run the app type:
-   ```
-npm start
-```
+### Credentials
+* Admin account
+    * Email: `admin@gmail.com`
+    * Password: `admin`
 
 ## Authors
 
